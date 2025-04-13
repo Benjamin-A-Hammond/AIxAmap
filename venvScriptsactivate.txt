@@ -1,4 +1,6 @@
 venv\Scripts\activate
+python run.py
+
 uvicorn api.index:app --reload
 
 
