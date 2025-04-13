@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>旅行地图助手</title>
-    <link rel="stylesheet" href="{{ url_for('static', path='/styles.css') }}">
+    <link rel="stylesheet" href="/static/styles.css">
     <script type="text/javascript">
         window.AMAP_API_KEY = "{{ amap_key }}";
     </script>
@@ -34,6 +34,6 @@
         <div id="map-container" class="map-container"></div>
     </div>
 
-    <script src="{{ url_for('static', path='/app.js') }}"></script>
+    <script src="/static/app.js"></script>
 </body>
 </html>

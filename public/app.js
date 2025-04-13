@@ -1,9 +1,14 @@
-// static/app.js
+// public/app.js 或 static/app.js (取决于你的当前目录结构)
 document.addEventListener('DOMContentLoaded', function() {
     const chatArea = document.getElementById('chat-area');
     const userInputForm = document.getElementById('user-input-form');
     const userInput = document.getElementById('user-input');
     const mapContainer = document.getElementById('map-container');
+    
+    // 获取当前环境的API路径
+    const apiPath = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' 
+        ? '/api/process'  // 本地和Vercel环境下使用相同的路径
+        : '/api/process'; // Vercel部署时的路径
     
     // 初始化地图
     const map = new AMap.Map(mapContainer, {
@@ -41,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const formData = new FormData();
             formData.append('user_input', text);
             
-            const response = await fetch('/process', {
+            const response = await fetch(apiPath, {
                 method: 'POST',
                 body: formData
             });

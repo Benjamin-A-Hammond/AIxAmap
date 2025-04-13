@@ -1,5 +1,5 @@
 venv\Scripts\activate
-uvicorn main:app --reload
+uvicorn api.index:app --reload
 
 
 我想去杭州西湖、北京市、武汉长江大桥
