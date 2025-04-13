@@ -28,10 +28,17 @@ if BASE_DIR.name == 'api':
 
 # 配置模板和静态文件目录
 TEMPLATES_DIR = BASE_DIR / "templates"
-STATIC_DIR = BASE_DIR / "public" if (BASE_DIR / "public").exists() else BASE_DIR / "static"
-
 templates = Jinja2Templates(directory=str(TEMPLATES_DIR))
-app.mount("/static", StaticFiles(directory=str(STATIC_DIR)), name="static")
+
+# 判断是本地环境还是 Vercel 环境
+is_vercel = os.environ.get('VERCEL') == '1'
+
+if is_vercel:
+    # Vercel 环境中不需要额外挂载静态文件，因为 vercel.json 中已经配置了路由
+    pass
+else:
+    # 本地开发环境，手动挂载静态文件
+    app.mount("/static", StaticFiles(directory="public/static"), name="static")
 
 @app.get("/", response_class=HTMLResponse)
 async def index(request: Request):
