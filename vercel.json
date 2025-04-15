@@ -2,22 +2,22 @@
   "version": 2,
   "builds": [
     {
-      "src": "api/index.py",
+      "src": "testaddress/api/index.py",
       "use": "@vercel/python"
     },
     {
-      "src": "public/**",
+      "src": "testaddress/public/**",
       "use": "@vercel/static"
     }
   ],
   "routes": [
     {
       "src": "/static/(.*)",
-      "dest": "/public/static/$1"
+      "dest": "testaddress/public/static/$1"
     },
     {
       "src": "/(.*)",
-      "dest": "/api/index.py"
+      "dest": "testaddress/api/index.py"
     }
   ]
 }
