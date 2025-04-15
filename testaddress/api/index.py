@@ -37,8 +37,8 @@ if is_vercel:
     # Vercel 环境中不需要额外挂载静态文件，因为 vercel.json 中已经配置了路由
     pass
 else:
-    # 本地开发环境，手动挂载静态文件
-    app.mount("/static", StaticFiles(directory="public/static"), name="static")
+    # 本地开发环境，手动挂载静态文件，使用相对于项目根目录的路径
+    app.mount("/static", StaticFiles(directory=str(BASE_DIR / "public" / "static")), name="static")
 
 @app.get("/", response_class=HTMLResponse)
 async def index(request: Request):

@@ -31,10 +31,9 @@ AIxAmap is a project that integrates artificial intelligence with mapping techno
 1. create and activate venv.
     ```bash
     venv\Scripts\activate
-    
     python run.py
     # or
-    uvicorn api.index:app --reload
+    uvicorn testaddress.api.index:app --reload
     ```
 
 ### Vercel
