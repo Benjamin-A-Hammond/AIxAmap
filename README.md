@@ -30,12 +30,9 @@ AIxAmap is a project that integrates artificial intelligence with mapping techno
 ### Local
 1. create and activate venv.
     ```bash
-    venv\\Scripts\\activate
-    ```
-2. Run the main script:
-    ```bash
+    venv\Scripts\activate
+    
     python run.py
-
     # or
     uvicorn api.index:app --reload
     ```
